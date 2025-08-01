@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - Barbearia e Cabeleireiro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos adicionais, se necessário */
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div class="container mx-auto p-4 md:p-8 lg:max-w-xl">
+
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Agende seu Horário</h1>
+            <p class="text-gray-600 mt-2">Escolha o dia e horário que melhor se encaixa para você.</p>
+        </header>
+
+        <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+
+            <div class="mb-6">
+                <label for="servico" class="block text-gray-700 font-semibold mb-2">Serviço</label>
+                <select id="servico" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+                    <option value="corte-masculino">Corte Masculino</option>
+                    <option value="barba">Barba</option>
+                    <option value="corte-feminino">Corte Feminino</option>
+                    <option value="combo">Combo (Corte + Barba)</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+
+            <div class="mb-6">
+                <label for="data" class="block text-gray-700 font-semibold mb-2">Selecione o Dia</label>
+                <input type="date" id="data" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+            </div>
+
+            <div class="mb-6">
+                <label for="horario" class="block text-gray-700 font-semibold mb-2">Selecione o Horário</label>
+                <select id="horario" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+                    <option value="">Selecione...</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                </select>
+            </div>
+
+            <button id="agendarBtn" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+                Agendar Horário
+            </button>
+        </div>
+
+        <footer class="text-center text-gray-500 mt-6">
+            <p>&copy; 2025 Sua Barbearia/Salão. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('agendarBtn').addEventListener('click', function() {
+            const servico = document.getElementById('servico').value;
+            const data = document.getElementById('data').value;
+            const horario = document.getElementById('horario').value;
+
+            if (data && horario) {
+                // Monta a mensagem para o WhatsApp
+                const mensagem = `Olá, gostaria de agendar um horário!%0A*Serviço:* ${servico}%0A*Data:* ${data}%0A*Horário:* ${horario}`;
+                
+                // Número do WhatsApp com o código do país (substitua por seu número)
+                const numeroWhatsapp = '5511985948235'; 
+
+                // Cria o link do WhatsApp
+                const linkWhatsapp = `https://wa.me/${numeroWhatsapp}?text=${mensagem}`;
+                
+                // Redireciona para o WhatsApp
+                window.open(linkWhatsapp, '_blank');
+            } else {
+                alert('Por favor, preencha todos os campos para agendar.');
+            }
+        });
+    </script>
+</body>
+</html>
