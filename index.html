@@ -3,23 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamento - Barbearia e Cabeleireiro</title>
+    <title>Agendamento - Barbearia Maycon Silva</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilo para a imagem de fundo com uma sobreposição escura */
+        .background {
+            background-image: url('./marque.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+        /* Adiciona uma camada de sobreposição escura para facilitar a leitura do texto */
+        .background::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Cor preta com 70% de opacidade */
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="font-sans text-white background">
 
-    <div class="container mx-auto p-4 md:p-8 lg:max-w-xl">
+    <div class="relative container mx-auto p-4 md:p-8 lg:max-w-xl z-10">
 
         <header class="text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Agende seu Horário</h1>
-            <p class="text-gray-600 mt-2">Escolha o dia e horário que melhor se encaixa para você.</p>
+            <div class="mb-4 ">
+                <img src="./maicon.jpg" alt="Logotipo Barbearia Maycon Silva" class="mx-auto h-24 w-auto rounded-full">
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-white">Agende seu Horário</h1>
+            <p class="text-xl md:text-2xl font-semibold text-white mt-2">Barbearia Maycon Silva</p>
+            <p class="text-gray-300 mt-2">Escolha o dia e horário que melhor se encaixa para você.</p>
         </header>
 
-        <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+        <div class="bg-black bg-opacity-50 backdrop-blur-md rounded-lg shadow-xl p-6 md:p-8">
 
             <div class="mb-6">
-                <label for="servico" class="block text-gray-700 font-semibold mb-2">Serviço</label>
-                <select id="servico" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+                <label for="servico" class="block text-gray-200 font-semibold mb-2">Serviço</label>
+                <select id="servico" class="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
                     <option value="Corte Masculino">Corte Masculino</option>
                     <option value="Barba">Barba</option>
                     <option value="Corte Feminino">Corte Feminino</option>
@@ -29,13 +54,13 @@
             </div>
 
             <div class="mb-6">
-                <label for="data" class="block text-gray-700 font-semibold mb-2">Selecione o Dia</label>
-                <input type="date" id="data" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+                <label for="data" class="block text-gray-200 font-semibold mb-2">Selecione o Dia</label>
+                <input type="date" id="data" class="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
             </div>
 
             <div class="mb-6">
-                <label for="horario" class="block text-gray-700 font-semibold mb-2">Selecione o Horário</label>
-                <select id="horario" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+                <label for="horario" class="block text-gray-200 font-semibold mb-2">Selecione o Horário</label>
+                <select id="horario" class="w-full p-3 border border-gray-600 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
                     </select>
             </div>
 
@@ -44,8 +69,8 @@
             </button>
         </div>
 
-        <footer class="text-center text-gray-500 mt-6">
-            <p>&copy; 2025 Sua Barbearia/Salão. Todos os direitos reservados.</p>
+        <footer class="text-center text-gray-300 mt-6">
+            <p>&copy; 2025 Barbearia Maycon Silva. Todos os direitos reservados.</p>
         </footer>
     </div>
 
@@ -95,7 +120,7 @@
                     const mensagem = `Olá, gostaria de agendar um horário!%0A*Serviço:* ${servico}%0A*Data:* ${data}%0A*Horário:* ${horario}`;
                     
                     // Número do WhatsApp com o código do país (substitua por seu número)
-                    const numeroWhatsapp = '5511985948235'; 
+                    const numeroWhatsapp = '5511960811193'; 
                     const linkWhatsapp = `https://wa.me/${numeroWhatsapp}?text=${mensagem}`;
                     
                     window.open(linkWhatsapp, '_blank');
